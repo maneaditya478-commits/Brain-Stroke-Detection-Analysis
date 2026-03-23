@@ -8,7 +8,7 @@ import SegmentationVisualizer from './components/SegmentationVisualizer';
 import EEGPanel from './components/EEGPanel';
 import AlzheimersRiskPanel from './components/AlzheimersRiskPanel';
 import StrokeTypePanel from './components/StrokeTypePanel';
-const API_BASE_URL = "http://localhost:8000";
+const API_BASE_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "" : "http://localhost:8000");
 
 function App() {
   const [imageFile, setImageFile] = useState(null);
