@@ -1,6 +1,3 @@
-import torch
-import torch.nn as nn
-from torchvision import transforms, models
 import numpy as np
 import cv2
 from PIL import Image
@@ -8,23 +5,11 @@ from PIL import Image
 class MockStrokeClassifier:
     """Mock PyTorch classification model (e.g., ResNet) returning realistic probabilities."""
     def __init__(self):
-        # In a real scenario, you would load model weights here:
-        # self.model = models.resnet18(pretrained=False)
-        # self.model.fc = nn.Linear(self.model.fc.in_features, 2)
-        # self.model.load_state_dict(torch.load('stroke_model.pth'))
-        # self.model.eval()
         self.classes = ['Normal', 'Stroke']
 
     def predict(self, image: Image.Image):
         """Simulates prediction behavior."""
-        # Preprocessing that would typically happen
-        preprocess = transforms.Compose([
-            transforms.Resize(256),
-            transforms.CenterCrop(224),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ])
-        input_tensor = preprocess(image).unsqueeze(0)
+        # Note: Preprocessing removed for Vercel optimization (using mock logic only)
 
         # Mock inference result based on image mean pixel intensity as a deterministic proxy
         img_array = np.array(image.convert("L"))
