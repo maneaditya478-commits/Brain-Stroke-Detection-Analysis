@@ -8,7 +8,7 @@ from PIL import Image
 
 from ml_models import MockStrokeClassifier, MockLesionSegmenter
 
-app = FastAPI(title="Brain Stroke Detection API")
+app = FastAPI(title="Brain Stroke Detection API", root_path="/api")
 
 # Setup CORS to allow React frontend requests
 app.add_middleware(
